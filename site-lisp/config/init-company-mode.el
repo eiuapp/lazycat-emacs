@@ -104,32 +104,39 @@
 
 (require 'lazy-load)
 (require 'company)
-(require 'company-posframe)
 (require 'company-yasnippet)
 (require 'company-dabbrev)
 (require 'company-files)
-(require 'desktop)
+;; (require 'company-posframe)
+;; (require 'desktop)
 
 ;;; Code:
 
 ;; Config for company mode.
-(global-company-mode)
 (setq company-idle-delay 0.2)   ; set the completion menu pop-up delay
 (setq company-minimum-prefix-length 1) ; pop up a completion menu by tapping a character
 (setq company-show-numbers nil)   ; do not display numbers on the left
 (setq company-require-match nil) ; allow input string that do not match candidate words
 
 ;; Customize company backends.
-(push 'company-files company-backends)
+(setq company-backends (delete 'company-xcode company-backends))
+(setq company-backends (delete 'company-bbdb company-backends))
+(setq company-backends (delete 'company-eclim company-backends))
+(setq company-backends (delete 'company-gtags company-backends))
+(setq company-backends (delete 'company-etags company-backends))
+(setq company-backends (delete 'company-oddmuse company-backends))
+(add-to-list 'company-backends 'company-files)
+
+(global-company-mode)
 
 ;; Don't downcase the returned candidates.
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case t)
 
 ;; Let desktop.el not record the company-posframe-mode
-(company-posframe-mode 1)
-(push '(company-posframe-mode . nil)
-      desktop-minor-mode-table)
+;; (company-posframe-mode 1)
+;; (push '(company-posframe-mode . nil)
+;;       desktop-minor-mode-table)
 
 ;; Add `company-elisp' backend for elisp.
 (add-hook 'emacs-lisp-mode-hook

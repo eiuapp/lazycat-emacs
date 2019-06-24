@@ -92,6 +92,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)           ;以 y/n代表 yes/no
 (blink-cursor-mode -1)                  ;指针不闪动
 (transient-mark-mode 1)                 ;标记高亮
+(global-subword-mode 1)                 ;Word移动支持 FooBar 的格式
 (setq use-dialog-box nil)               ;never pop dialog
 (setq inhibit-startup-screen t)         ;inhibit start screen
 (setq initial-scratch-message "") ;关闭启动空白buffer, 这个buffer会干扰session恢复
@@ -119,9 +120,9 @@
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 
 ;; Don't ask me when close emacs with process is running
-(require 'noflet)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (require 'noflet)
   (noflet ((process-list ())) ad-do-it))
 
 ;; Don't ask me when kill process buffer
