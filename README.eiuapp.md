@@ -1,5 +1,20 @@
 在 emacs 下使用 lazycat-emacs 的配置
 
+## git merge
+
+当 manateelazycat/lazycat-emacs 有更新时，merge新代码
+
+```
+git checkout master
+git pull origin master
+git checkout eiuapp
+git pull origin eiuapp
+git merge master
+git submodule init
+git submodule update --remote
+```
+
+ 
 ## git diff
 
 ```
