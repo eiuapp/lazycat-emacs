@@ -154,3 +154,27 @@
 [submodule "lazy-load"]
 	path = site-lisp/extensions/lazy-load
 	url = https://github.com/manateelazycat/lazy-load.git
+[submodule "site-lisp/extensions/transient"]
+	path = site-lisp/extensions/transient
+	url = https://github.com/magit/transient.git
+[submodule "site-lisp/extensions/with-editor"]
+	path = site-lisp/extensions/with-editor
+	url = https://github.com/magit/with-editor.git
+[submodule "benchmark-init-el"]
+	path = site-lisp/extensions/benchmark-init-el
+	url = https://github.com/dholm/benchmark-init-el.git
+[submodule "symbol-overlay"]
+	path = site-lisp/extensions/symbol-overlay
+	url = https://github.com/wolray/symbol-overlay.git
+[submodule "swiper"]
+	path = site-lisp/extensions/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/extensions/shift-number"]
+	path = site-lisp/extensions/shift-number
+	url = https://github.com/alezost/shift-number.el.git
+[submodule "delete-block"]
+	path = site-lisp/extensions/delete-block
+	url = https://github.com/manateelazycat/delete-block.git
+[submodule "smart-align"]
+	path = site-lisp/extensions/smart-align
+	url = https://github.com/manateelazycat/smart-align.git

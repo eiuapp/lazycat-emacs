@@ -80,11 +80,11 @@
 ;;
 
 ;;; Require
-
+(require 'magit)
 
 ;;; Code:
-
-(require 'magit)
+(exec-path-from-shell-initialize)
+(load-file (concat lazycat-emacs-extension-dir "/with-editor/with-editor.el"))
 
 ;; Magit configuration.
 (setq magit-commit-ask-to-stage nil)    ;don't ask stage question

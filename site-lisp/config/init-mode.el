@@ -85,6 +85,19 @@
 
 ;;; ### auto-mode-alist ###
 ;;; --- 绑定扩展名到特定的模式
+(defun add-to-alist (alist-var elt-cons &optional no-replace)
+  "Add to the value of ALIST-VAR an element ELT-CONS if it isn't there yet.
+If an element with the same car as the car of ELT-CONS is already present,
+replace it with ELT-CONS unless NO-REPLACE is non-nil; if a matching
+element is not already present, add ELT-CONS to the front of the alist.
+The test for presence of the car of ELT-CONS is done with `equal'."
+  (let ((existing-element (assoc (car elt-cons) (symbol-value alist-var))))
+    (if existing-element
+        (or no-replace
+            (rplacd existing-element (cdr elt-cons)))
+      (set alist-var (cons elt-cons (symbol-value alist-var)))))
+  (symbol-value alist-var))
+
 (dolist (elt-cons '(
                     ("\\.markdown" . markdown-mode)
                     ("\\.md" . markdown-mode)
@@ -145,11 +158,14 @@
                     ("\\.pro$" . qmake-mode)
                     ("\\.js$" . js-mode)
                     ("\\.wxs$" . js-mode)
-                    ("\\.jsx$" . rjsx-mode)
+                    ("\\.jsx$" . web-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.swift$" . swift-mode)
                     ("\\.l$" . flex-mode)
                     ("\\.y$" . bison-mode)
+                    ("\\.pdf$" . pdf-view-mode)
+                    ("\\.cpp$" . c++-mode)
+                    ("\\.h$" . c++-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -179,6 +195,7 @@
 (autoload 'rjsx-mode "rjsx-mode")
 (autoload 'flex-mode "flex")
 (autoload 'bison-mode "bison")
+(autoload 'pdf-view-mode "init-pdf-tools")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
