@@ -85,10 +85,6 @@
 
 ;;; Require
 
-(require 'windows)
-(require 'cycle-buffer)
-(require 'display-line-numbers)
-
 ;;; Code:
 
 (defun unmark-all-buffers ()
@@ -101,19 +97,6 @@
         (deactivate-mark)))
     (switch-to-buffer current-element)
     (deactivate-mark)))
-
-(defun add-to-alist (alist-var elt-cons &optional no-replace)
-  "Add to the value of ALIST-VAR an element ELT-CONS if it isn't there yet.
-If an element with the same car as the car of ELT-CONS is already present,
-replace it with ELT-CONS unless NO-REPLACE is non-nil; if a matching
-element is not already present, add ELT-CONS to the front of the alist.
-The test for presence of the car of ELT-CONS is done with `equal'."
-  (let ((existing-element (assoc (car elt-cons) (symbol-value alist-var))))
-    (if existing-element
-        (or no-replace
-            (rplacd existing-element (cdr elt-cons)))
-      (set alist-var (cons elt-cons (symbol-value alist-var)))))
-  (symbol-value alist-var))
 
 (defun insert-line-number (beg end &optional start-line)
   "Insert line numbers into buffer."
@@ -288,30 +271,6 @@ Optional argument REVERSED default is move next line, if reversed is non-nil mov
   (interactive "P")
   (downcase-region (point) (+ (point) (or arg 1)))
   (forward-char (or arg 1)))
-
-(defun kill-syntax-forward (&optional arg)
-  "Kill ARG set of syntax characters after point."
-  (interactive "p")
-  (let ((arg (or arg 1))
-        (inc (if (and arg (< arg 0)) 1 -1))
-        (opoint (point)))
-    (while (or          ;(not (= arg 0)) ;; This condition is implied.
-            (and (> arg 0) (not (eobp)))
-            (and (< arg 0) (not (bobp))))
-      (if (> arg 0)
-          (skip-syntax-forward (string (char-syntax (char-after))))
-        (skip-syntax-backward (string (char-syntax (char-before)))))
-      (setq arg (+ arg inc)))
-    (if (and (> arg 0) (eobp))
-        (message "End of buffer"))
-    (if (and (< arg 0) (bobp))
-        (message "Beginning of buffer"))
-    (kill-region opoint (point))))
-
-(defun kill-syntax-backward (&optional arg)
-  "Kill ARG set of syntax characters preceding point."
-  (interactive "p")
-  (kill-syntax-forward (- 0 (or arg 1))))
 
 (defun mark-line ()
   "Mark one whole line, similar to `mark-paragraph'."
@@ -500,22 +459,6 @@ Otherwise return nil."
   (interactive)
   (goto-column (- (current-column) 4)))
 
-(defun kill-syntax-forward+ (&optional arg)
-  "Kill ARG set of syntax characters after point.
-And if `completion-auto-mode' is active,
-use function `completion-delete'."
-  (interactive "p")
-  (if (member 'auto-completion-mode minor-mode-list)
-      (completion-delete 'kill-syntax-forward arg)
-    (kill-syntax-forward arg)))
-
-(defun kill-syntax-backward+ (&optional arg)
-  "Kill ARG set of syntax characters preceding point."
-  (interactive "p")
-  (if (member 'auto-completion-mode minor-mode-list)
-      (completion-backward-delete 'kill-syntax-forward (- arg))
-    (kill-syntax-forward (- arg))))
-
 (defun scroll-up-one-line()
   "Scroll up one line."
   (interactive)
@@ -548,6 +491,7 @@ use function `completion-delete'."
 
 (defun cycle-buffer-in-special-mode (special-mode)
   "Cycle in special mode."
+  (require 'cycle-buffer)
   (catch 'done
     (dolist (buffer (buffer-list))
       (with-current-buffer buffer

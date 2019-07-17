@@ -118,9 +118,6 @@
 [submodule "auto-save"]
 	path = site-lisp/extensions/auto-save
 	url = https://github.com/manateelazycat/auto-save.git
-[submodule "auto-rename-tag"]
-	path = site-lisp/extensions/auto-rename-tag
-	url = https://github.com/jcs090218/auto-rename-tag.git
 [submodule "thing-edit"]
 	path = site-lisp/extensions/thing-edit
 	url = https://github.com/manateelazycat/thing-edit.git
@@ -133,9 +130,6 @@
 [submodule "lazy-search"]
 	path = site-lisp/extensions/lazy-search
 	url = https://github.com/manateelazycat/lazy-search.git
-[submodule "awesome-tab"]
-	path = site-lisp/extensions/awesome-tab
-	url = https://github.com/manateelazycat/awesome-tab.git
 [submodule "goto-line-preview"]
 	path = site-lisp/extensions/goto-line-preview
 	url = https://github.com/jcs090218/goto-line-preview.git
@@ -163,3 +157,45 @@
 [submodule "benchmark-init-el"]
 	path = site-lisp/extensions/benchmark-init-el
 	url = https://github.com/dholm/benchmark-init-el.git
+[submodule "symbol-overlay"]
+	path = site-lisp/extensions/symbol-overlay
+	url = https://github.com/wolray/symbol-overlay.git
+[submodule "swiper"]
+	path = site-lisp/extensions/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/extensions/shift-number"]
+	path = site-lisp/extensions/shift-number
+	url = https://github.com/alezost/shift-number.el.git
+[submodule "delete-block"]
+	path = site-lisp/extensions/delete-block
+	url = https://github.com/manateelazycat/delete-block.git
+[submodule "smart-align"]
+	path = site-lisp/extensions/smart-align
+	url = https://github.com/manateelazycat/smart-align.git
+[submodule "multi-term"]
+	path = site-lisp/extensions/multi-term
+	url = https://github.com/manateelazycat/multi-term.git
+[submodule "instant-rename-tag"]
+	path = site-lisp/extensions/instant-rename-tag
+	url = https://github.com/manateelazycat/instant-rename-tag.git
+[submodule "highlight-matching-tag"]
+	path = site-lisp/extensions/highlight-matching-tag
+	url = https://github.com/manateelazycat/highlight-matching-tag.git
+[submodule "highlight-indent-guides"]
+	path = site-lisp/extensions/highlight-indent-guides
+	url = https://github.com/DarthFennec/highlight-indent-guides.git
+[submodule "awesome-tab"]
+	path = site-lisp/extensions/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab.git
+[submodule "olivetti"]
+	path = site-lisp/extensions/olivetti
+	url = https://github.com/rnkn/olivetti.git
+[submodule "names"]
+	path = site-lisp/extensions/names
+	url = https://github.com/Malabarba/names.git
+[submodule "company-tabnine"]
+	path = site-lisp/extensions/company-tabnine
+	url = https://github.com/TommyX12/company-tabnine.git
+[submodule "site-lisp/extensions/unicode-escape"]
+	path = site-lisp/extensions/unicode-escape
+	url = https://github.com/kosh04/unicode-escape.el.git
