@@ -17,6 +17,11 @@ git submodule update --remote
  
 ## git diff
 
+### 放入 eiuapp 分支的修改代码 ###
+
+这部分已经在 eiuapp 中, 当再次更新或merge master 分支时,不需要改动.
+
+
 ```
 Head:     eiuapp upgrade lazy-load.
 Tag:      3.0 (831)
@@ -107,7 +112,10 @@ d80a9e9 upgrade awesome-tray.
 cc26f48 upgrade aweshell.
 ```
 
-### 其中 lazycat-theme 与 sdcv 部分
+
+### git submodule 要修改的部分 ###
+
+要让emacs启动, 其中 lazycat-theme 与 sdcv 部分 要修改
 
 ```
 modified   site-lisp/extensions/lazycat-theme
