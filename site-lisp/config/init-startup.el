@@ -92,6 +92,14 @@
 (menu-bar-mode -1)                      ;禁用菜单栏
 (scroll-bar-mode -1)                    ;禁用滚动条
 
+;; 个性化 frame 的图标icon
+(set-frame-parameter (car (frame-list)) 'icon-type  "~/.spacemacs.d/layers/zilongshanren-tomtsang/utils/images/ecoicon05_122077.png")
+;; 个性化 frame 的标题title. 设置成 `zyl - ${文件名}`
+(setq frame-title-format
+          '("" " zyl - "
+            (:eval (if (buffer-file-name)
+                        (abbreviate-file-name (buffer-file-name)) "%b"))))
+
 (if (featurep 'cocoa)
     (progn
       ;; 在Mac平台, Emacs不能进入Mac原生的全屏模式,否则会导致 `make-frame' 创建时也集成原生全屏属性后造成白屏和左右滑动现象.
