@@ -104,6 +104,8 @@
                'swift-mode-hook
                'web-mode-hook
                'markdown-mode-hook
+               'llvm-mode-hook
+               'conf-toml-mode-hook
                ))
   (add-hook hook '(lambda () (awesome-pair-mode 1))))
 

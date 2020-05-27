@@ -41,15 +41,14 @@
 ;;; --- 工具函数
 (lazy-load-set-keys
  '(
-   ("s-c o" . one-key-menu-directory)       ;目录打开菜单
-   ("s-," . bury-buffer)                    ;隐藏当前buffer
-   ("s-." . unbury-buffer)                  ;反隐藏当前buffer
-   ("s-&" . killall)                        ;杀掉进程
-   ("<M-s-return>" . toggle-debug-on-error) ;切换调试模式
-   ("s-[" . eval-expression)                ;执行表达式
-   ("C-s-q" . quoted-insert)                ;读取系一个输入字符并插入
+   ("s-c o" . one-key-menu-directory)   ;目录打开菜单
+   ("s-," . bury-buffer)                ;隐藏当前buffer
+   ("s-." . unbury-buffer)              ;反隐藏当前buffer
+   ("s-[" . eval-expression)            ;执行表达式
+   ("C-s-q" . quoted-insert)            ;读取系一个输入字符并插入
    ("M-h" . set-mark-command) ;Instead C-Space for Chinese input method
    ("M-H" . set-mark-command) ;Instead C-Space for Chinese input method
+   ("<f9>" . lazycat-theme-toggle)
    ))
 (lazy-load-global-keys
  '(
@@ -244,12 +243,13 @@
 ;;; --- 多标签浏览
 (lazy-load-set-keys
  '(
-   ("M-7" . awesome-tab-backward-tab)              ;移动到后一个标签
-   ("M-8" . awesome-tab-forward-tab)               ;移动到前一个标签
-   ("M-9" . awesome-tab-backward-group)            ;移动到后一个标签组
-   ("M-0" . awesome-tab-forward-group)             ;移动到前一个标签组
-   ("<C-tab>" . awesome-tab-backward-tab)          ;移动到后一个标签
-   ("<C-S-iso-lefttab>" . awesome-tab-forward-tab) ;移动到前一个标签
+   ("s-j" . awesome-tab-ace-jump)        ;Ace jump
+   ("M-7" . awesome-tab-backward-tab)    ;移动到后一个标签
+   ("M-8" . awesome-tab-forward-tab)     ;移动到前一个标签
+   ("M-9" . awesome-tab-backward-group)  ;移动到后一个标签组
+   ("M-0" . awesome-tab-forward-group)   ;移动到前一个标签组
+   ("<C-tab>" . awesome-tab-forward-tab) ;移动到后一个标签
+   ("<C-S-iso-lefttab>" . awesome-tab-backward-tab) ;移动到前一个标签
    ))
 (lazy-load-global-keys
  '(
@@ -257,20 +257,11 @@
    ("M-*" . awesome-tab-forward-tab-other-window)
    ("M-s-7" . awesome-tab-select-beg-tab)
    ("M-s-8" . awesome-tab-select-end-tab)
+   ("M-s-9" . awesome-tab-move-current-tab-to-beg)
    ("s-a" . awesome-tab-kill-other-buffers-in-current-group)
    ("s-A" . awesome-tab-kill-all-buffers-in-current-group)
    ("s-w" . awesome-tab-keep-match-buffers-in-current-group)
    ("s-W" . awesome-tab-kill-match-buffers-in-current-group)
-   ("s-1" . awesome-tab-select-visible-tab)
-   ("s-2" . awesome-tab-select-visible-tab)
-   ("s-3" . awesome-tab-select-visible-tab)
-   ("s-4" . awesome-tab-select-visible-tab)
-   ("s-5" . awesome-tab-select-visible-tab)
-   ("s-6" . awesome-tab-select-visible-tab)
-   ("s-7" . awesome-tab-select-visible-tab)
-   ("s-8" . awesome-tab-select-visible-tab)
-   ("s-9" . awesome-tab-select-visible-tab)
-   ("s-0" . awesome-tab-select-visible-tab)
    )
  "awesome-tab")
 ;;; ### Functin key ###
@@ -281,12 +272,6 @@
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ))
-(lazy-load-global-keys
- '(
-   ("C-7" . find-define-back)           ;返回查找符号的定义之前的位置
-   ("C-8" . find-define)                ;查找符号的定义
-   )
- "find-define")
 ;;; ### Awesome-Pair ###
 ;;; --- 结构化编程
 (lazy-load-unset-keys
@@ -340,19 +325,6 @@
    ("s-x s-x" . aweshell-dedicated-toggle)
    )
  "aweshell")
-;;; ### W3m ###
-;;; --- 网页浏览器
-(lazy-load-global-keys
- '(
-   ("C-z C-z" . w3m)                    ;启动W3M
-   )
- "init-w3m")
-(lazy-load-global-keys
- '(
-   ("C-z z" . w3m-startup-background)         ;启动W3M, 后台
-   ("C-x C-z" . toggle-w3m-with-other-buffer) ;在W3M和buffer间切换
-   )
- "w3m-extension")
 ;;; ### Dired ###
 ;;; --- Dired
 (lazy-load-global-keys
@@ -361,25 +333,19 @@
    ("C-x C-f" . find-file)
    )
  "init-dired")
-;;; ### Helm ###
-;;; --- 快速buffer切换
-(lazy-load-global-keys
- '(
-   ("s-y" . helm-dwim)
-   )
- "init-helm")
 ;;; ### EAF ###
 ;;; EAF
 (unless (featurep 'cocoa)
   (lazy-load-global-keys
    '(
      ("s-'" . eaf-open)
-     ("s-/" . eaf-stop-process)
+     ("s-\"" . eaf-open-browser)
+     ("s-/" . eaf-open-terminal)
      )
    "init-eaf")
   (lazy-load-local-keys
    '(
-     ("K" . eaf-dired-open-file)
+     ("H" . eaf-open-this-from-dired)
      )
    dired-mode-map
    "init-eaf"))
@@ -417,13 +383,6 @@
    )
  isearch-mode-map
  )
-;; ### Helm Packman ###
-;;; --- Pacman 管理工具
-(lazy-load-global-keys
- '(
-   ("s-x z" . helm-system-packages)
-   )
- "helm-system-packages-pacman")
 ;;; ### Flycheck ###
 ;;; --- 及时拼写检查
 (lazy-load-global-keys
@@ -581,10 +540,6 @@
 (lazy-load-global-keys
  '(
    ("C-c p" . one-key-menu-emms)        ;播放器菜单
-   ("<up>" . emms-volume-mode-plus)     ;增加音量
-   ("<down>" . emms-volume-mode-minus)  ;减少音量
-   ("<left>" . emms-seek-backward)      ;后退
-   ("<right>" . emms-seek-forward)      ;前进
    ("M-A" . emms-pause)                 ;暂停/播放
    ("M-X" . emms-random)                ;随机播放
    ("M-Z" . emms-stop)                  ;停止
@@ -672,12 +627,13 @@
 
 (lazy-load-global-keys
  '(
-   ("s-m" . toggle-input-method))
- "init-pyim")
+   ("s-m" . toggle-input-method)
+   )
+ "init-rime")
 
 (lazy-load-global-keys
  '(
-   ("M-x" . smex)
+   ("M-x" . smex+)
    ("C-c C-c M-x" . execute-extended-command)
    )
  "init-smex")
@@ -686,5 +642,23 @@
  '(
    ("C-M-%" . vr/query-replace))
  "init-visual-regexp")
+
+(lazy-load-global-keys
+ '(
+   ("s-y" . snails)
+   ("s-u" . snails-search-point)
+   )
+ "snails")
+
+(lazy-load-global-keys
+ '(
+   ("C-7" . xref-pop-marker-stack)
+   ("C-8" . xref-find-definitions)
+   ("C-9" . xref-find-definitions-other-window)
+   ("M-k" . xref-find-references)
+   ("M-," . nox-rename)
+   ("M-." . nox-show-doc)
+   )
+ "init-nox.el")
 
 (provide 'init-key)

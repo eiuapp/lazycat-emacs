@@ -88,8 +88,39 @@
 (setq eaf-grip-token "2a8ffd3a265e8da29e208e2da5a6636a7940c540")
 
 ;; You need configuration your own local proxy program first.
-(setq eaf-http-proxy-host "127.0.0.1")
-(setq eaf-http-proxy-port "1080")
+(setq eaf-proxy-type "socks5")
+(setq eaf-proxy-host "127.0.0.1")
+(setq eaf-proxy-port "1080")
+
+(eaf-bind-key undo_action "C-/" eaf-browser-keybinding)
+(eaf-bind-key redo_action "C-?" eaf-browser-keybinding)
+(eaf-bind-key scroll_up "M-j" eaf-browser-keybinding)
+(eaf-bind-key scroll_down "M-k" eaf-browser-keybinding)
+(eaf-bind-key scroll_up_page "M-n" eaf-browser-keybinding)
+(eaf-bind-key scroll_down_page "M-p" eaf-browser-keybinding)
+(eaf-bind-key open_link "M-h" eaf-browser-keybinding)
+(eaf-bind-key open_link_new_buffer "M-H" eaf-browser-keybinding)
+(eaf-bind-key insert_or_open_link_new_buffer "D" eaf-browser-keybinding)
+(eaf-bind-key insert_or_open_link_background_buffer "F" eaf-browser-keybinding)
+(eaf-bind-key watch-other-window-up-line "M-<" eaf-browser-keybinding)
+(eaf-bind-key watch-other-window-down-line "M->" eaf-browser-keybinding)
+(eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
+(eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
+
+(eaf-setq eaf-browser-default-zoom "1.25")
+(eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
+(eaf-setq eaf-browser-aria2-proxy-port "9888")
+(eaf-setq eaf-terminal-font-size "18")
+
+(eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
+
+(defun jekyll-start-server ()
+  (interactive)
+  (eaf-terminal-run-command-in-dir "jekyll serve --livereload" "/home/andy/manateelazycat.github.io"))
+
+(defun jekyll-open-local ()
+  (interactive)
+  (eaf-open-browser "http://127.0.0.1:4000"))
 
 (provide 'init-eaf)
 

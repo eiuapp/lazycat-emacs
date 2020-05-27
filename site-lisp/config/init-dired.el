@@ -100,25 +100,9 @@
  '(lambda ()
     (require 'dired-extension)
     (dired-omit-method)                 ;隐藏文件的方法
-
-    (require 'dired+)
-    (toggle-dired-find-file-reuse-dir 1) ;使用单一模式浏览Dired
     ))
 (setq dired-guess-shell-alist-user      ;设置文件默认打开的模式
       '(
-        ;; 图书
-        (list "\\.chm$" '(concat
-                          "firefox chm:"            ;执行特定的命令
-                          (replace-regexp-in-string ;替换空格为%20
-                           " " "%20" (w3m-expand-file-name-as-url (dired-get-filename))) ;用URL的模式解析文件名
-                          " -q"))
-        (list "\\.pdf$" "wine /data/Backup/WindowsTools/FoxitReader/FoxitReader.exe")
-        (list "\\.pdg$" "wine /data/Backup/WindowsTools/MiniPDG/pdgreader.exe")
-        ;; 多媒体
-        (list (format "\\(%s\\)$" (emms-player-get emms-player-mplayer 'regex)) "mplayer")
-        (list "\\.\\(jpe?g\\|png\\)$" "eog" " -q")
-        ;; 网页
-        (list "\\.html?$" "firefox")
         ;; 压缩包
         (list "\\.rar$" "unrar e -ad")
         (list "\\.tar.bz2$" "tar jxvf")
@@ -139,7 +123,8 @@
    ("9" . auto-install-from-dired)      ;自动从EmacsWiki安装标记的文件
    ("I" . image-dired)                  ;打开浏览模式
    ("W" . dired-x-find-file)            ;查找文件
-   ("J" . dired-goto-file)              ;跳到某个文件
+   ("J" . awesome-tab-backward-tab)
+   ("K" . awesome-tab-forward-tab)
    ("X" . traverse-cp-or-mv-extfiles-in-dir) ;拷贝或移动目录下指定扩展名的文件
    ("V" . traverse-dired-browse-archive)     ;浏览压缩文件
    ("," . dired-diff)                        ;比较文件
@@ -208,12 +193,6 @@
    )
  dired-mode-map
  "grep-dired")
-(lazy-load-local-keys
- '(
-   ("K" . dired-open-file)              ;批量打开文件
-   )
- dired-mode-map
- "dired-open")
 (lazy-load-local-keys
  '(
    ("]" . dired-show-file-qrcode))

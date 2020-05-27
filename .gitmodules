@@ -7,15 +7,9 @@
 [submodule "company-english-helper"]
 	path = site-lisp/extensions/company-english-helper
 	url = https://github.com/manateelazycat/company-english-helper.git
-[submodule "emacs-application-framework"]
-	path = site-lisp/extensions/emacs-application-framework
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "typescript"]
 	path = site-lisp/extensions/typescript
 	url = https://github.com/ananthakumaran/typescript.el.git
-[submodule "eglot"]
-	path = site-lisp/extensions/eglot
-	url = https://github.com/joaotavora/eglot.git
 [submodule "watch-other-window"]
 	path = site-lisp/extensions/watch-other-window
 	url = https://github.com/manateelazycat/watch-other-window.git
@@ -49,9 +43,6 @@
 [submodule "cache-path-from-shell"]
 	path = site-lisp/extensions/cache-path-from-shell
 	url = https://github.com/manateelazycat/cache-path-from-shell.git
-[submodule "pyim"]
-	path = site-lisp/extensions/pyim
-	url = https://github.com/tumashu/pyim.git
 [submodule "emacs-rails"]
 	path = site-lisp/extensions/emacs-rails
 	url = https://github.com/manateelazycat/emacs-rails.git
@@ -106,9 +97,6 @@
 [submodule "go-mode"]
 	path = site-lisp/extensions/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
-[submodule "find-define"]
-	path = site-lisp/extensions/find-define
-	url = https://github.com/manateelazycat/find-define.git
 [submodule "color-rg"]
 	path = site-lisp/extensions/color-rg
 	url = https://github.com/manateelazycat/color-rg.git
@@ -154,9 +142,6 @@
 [submodule "site-lisp/extensions/with-editor"]
 	path = site-lisp/extensions/with-editor
 	url = https://github.com/magit/with-editor.git
-[submodule "benchmark-init-el"]
-	path = site-lisp/extensions/benchmark-init-el
-	url = https://github.com/dholm/benchmark-init-el.git
 [submodule "symbol-overlay"]
 	path = site-lisp/extensions/symbol-overlay
 	url = https://github.com/wolray/symbol-overlay.git
@@ -199,3 +184,36 @@
 [submodule "site-lisp/extensions/unicode-escape"]
 	path = site-lisp/extensions/unicode-escape
 	url = https://github.com/kosh04/unicode-escape.el.git
+[submodule "snails"]
+	path = site-lisp/extensions/snails
+	url = https://github.com/manateelazycat/snails.git
+[submodule "posframe"]
+	path = site-lisp/extensions/posframe
+	url = https://github.com/tumashu/posframe.git
+[submodule "site-lisp/extensions/fuz"]
+	path = site-lisp/extensions/fuz
+	url = https://github.com/cireu/fuz.el.git
+[submodule "emacs-async"]
+	path = site-lisp/extensions/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
+[submodule "projectile"]
+	path = site-lisp/extensions/projectile
+	url = https://github.com/bbatsov/projectile.git
+[submodule "site-lisp/extensions/benchmark-init"]
+	path = site-lisp/extensions/benchmark-init
+	url = https://github.com/dholm/benchmark-init-el
+[submodule "sly-el-indent"]
+	path = site-lisp/extensions/sly-el-indent
+	url = https://github.com/cireu/sly-el-indent.git
+[submodule "site-lisp/extensions/emacs-application-framework"]
+	path = site-lisp/extensions/emacs-application-framework
+	url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "xr"]
+	path = site-lisp/extensions/xr
+	url = https://github.com/mattiase/xr.git
+[submodule "emacs-rime"]
+	path = site-lisp/extensions/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "nox"]
+	path = site-lisp/extensions/nox
+	url = https://github.com/manateelazycat/nox.git
