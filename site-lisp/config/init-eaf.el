@@ -92,6 +92,9 @@
 (setq eaf-proxy-host "127.0.0.1")
 (setq eaf-proxy-port "1080")
 
+;; Make `eaf-browser-restore-buffers' restore last close browser buffers.
+(setq eaf-browser-continue-where-left-off t)
+
 (eaf-bind-key undo_action "C-/" eaf-browser-keybinding)
 (eaf-bind-key redo_action "C-?" eaf-browser-keybinding)
 (eaf-bind-key scroll_up "M-j" eaf-browser-keybinding)
@@ -107,10 +110,12 @@
 (eaf-bind-key emacs-session-save "<f5>" eaf-browser-keybinding)
 (eaf-bind-key refresh_page "M-r" eaf-browser-keybinding)
 
-(eaf-setq eaf-browser-default-zoom "1.25")
+(eaf-setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) "2.5" "1.25"))
 (eaf-setq eaf-browser-aria2-proxy-host "127.0.0.1")
 (eaf-setq eaf-browser-aria2-proxy-port "9888")
 (eaf-setq eaf-terminal-font-size "18")
+(eaf-setq eaf-browser-enable-adblocker "true")
+(eaf-setq eaf-browser-enable-autofill "true")
 
 (eaf-setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 

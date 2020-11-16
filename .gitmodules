@@ -205,9 +205,6 @@
 [submodule "sly-el-indent"]
 	path = site-lisp/extensions/sly-el-indent
 	url = https://github.com/cireu/sly-el-indent.git
-[submodule "site-lisp/extensions/emacs-application-framework"]
-	path = site-lisp/extensions/emacs-application-framework
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "xr"]
 	path = site-lisp/extensions/xr
 	url = https://github.com/mattiase/xr.git
@@ -217,3 +214,12 @@
 [submodule "nox"]
 	path = site-lisp/extensions/nox
 	url = https://github.com/manateelazycat/nox.git
+[submodule "site-lisp/extensions/valign"]
+	path = site-lisp/extensions/valign
+	url = https://github.com/casouri/valign.git
+[submodule "site-lisp/extensions/emacs-application-framework"]
+	path = site-lisp/extensions/emacs-application-framework
+	url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "site-lisp/extensions/magit-popup"]
+	path = site-lisp/extensions/magit-popup
+	url = https://github.com/magit/magit-popup.git
