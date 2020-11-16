@@ -85,6 +85,9 @@
          (emacs-session-restore)
 
          (server-start)            ;为emacsclient准备使用场景，比如git
+         
+         (add-to-list 'load-path "~/lazycat-emacs/self/site-lisp/config/")
+         (require 'init-init)
          ))))
 
 (provide 'init)
